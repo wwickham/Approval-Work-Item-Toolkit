@@ -1,0 +1,45 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:record" size="small"></lightning-icon>
+            &nbsp;{label}
+        </h3>
+        <!--<div slot="footer">
+                <lightning-badge label="Tag1"></lightning-badge>
+        </div>-->
+        <lightning-layout style="max-height:200px">
+            <lightning-layout-item size=12>
+                <lightning-datatable
+                    key-field="Id"
+                    data={sortedData}
+                    columns={columns}
+                    onrowaction={handleRowAction}
+                    onsort={sortColumns}
+                    default-sort-direction={defaultSortDirection}
+                    sorted-direction={sortDirection}
+                    sorted-by={sortedBy}
+                    hide-checkbox-column="true">
+                </lightning-datatable>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+
+    <template if:true={isFlowModalOpen}>
+        <section role="dialog" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">Start Flow</h2>
+                    <lightning-button-icon class="slds-button slds-modal__close" icon-name="utility:close" title="Close" onclick={closeFlowModal}></lightning-button-icon>
+                </header>
+                <div class="slds-modal__content">
+                    <lightning-flow
+                        flow-api-name="standard_approvals__ProcessAppvlSbms"
+                        flow-input-variables={flowInputVariables}
+                        onstatuschange={handleFlowStatusChange}>
+                    </lightning-flow>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

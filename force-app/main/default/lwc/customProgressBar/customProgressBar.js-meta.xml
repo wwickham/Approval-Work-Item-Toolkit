@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Custom Progress Bar</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="currentValue" label="Current Amount" type="Integer" default="50" required="true"/>
+            <property name="maxValue" label="Goal Amount" type="Integer" default="100" required="true"/>
+            <property name="isRing" label="Use Ring Layout" type="Boolean" default="false" description="Toggles the style of progress indicator used. If true, switches to the progress ring instead of the default progress bar."/>
+            <property name="isCurrency" label="Is Currency" type="Boolean" default="true" description="If true, formats the amounts as a currency."/>
+            <property name="color" label="Color" type="String" default="#000000" description="Color of the progress indicator. You can enter a color name, like 'Red' or 'Green', or a Hex Color Code, like '#32a852'."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

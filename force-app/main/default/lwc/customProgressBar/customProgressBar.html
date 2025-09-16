@@ -1,0 +1,33 @@
+<template>
+    <template lwc:if={isRing}>
+        <div class="progress-container">
+            <div class="amount-raised">{currentValueFormatted}</div>
+            <div class="goal-text">Goal: {maxValueFormatted}</div>
+            <svg viewBox="0 0 36 36" class="progress-ring">
+                <path
+                class="background"
+                d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <path
+                class="progress"
+                d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                stroke-dasharray={dashArray}
+                stroke={color}
+                />
+            </svg>
+        </div>
+    </template>
+    <template lwc:else>
+        <div class="progress-container">
+            <div class="amount-raised">{currentValueFormatted}</div>
+            <div class="goal-text">Goal: {maxValueFormatted}</div>
+            <div class="slds-progress-bar">
+                <span class="slds-progress-bar__value"></span>
+            </div>
+        </div>
+    </template>
+</template>

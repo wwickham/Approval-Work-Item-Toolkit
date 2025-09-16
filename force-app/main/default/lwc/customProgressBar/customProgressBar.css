@@ -1,0 +1,51 @@
+.progress-container {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    margin: 5px
+}
+
+.amount-raised {
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.goal-text {
+    font-size: large;
+    padding-bottom: 15px;
+}
+
+.slds-progress-bar__value {
+    display: block;
+    height: 100%;
+    width: var(--progress);
+    border-radius: 10px;
+}
+
+.slds-progress-bar {
+    background: #e5e5e5 !important;
+    height: 15px;
+    border-radius: 10px;
+}
+
+.progress-ring {
+    width: 100px;
+    height: 100px;
+}
+  
+.progress,
+.background {
+    fill: none;
+    stroke-width: 4;
+}
+  
+.background {
+    stroke: #eee;
+}
+  
+.percentage {
+    font-size: 10px;
+    fill: #333;
+    transform: rotate(90deg);
+}
