@@ -19,8 +19,10 @@ public with sharing class CustomApprovalTraceController {
                 }
             }
 
-            String query = 'SELECT Id, Name, AssignedToId, AssignedTo.Name, Comments, CreatedDate, ApprovalSubmission.SubmittedById, ApprovalSubmission.SubmittedBy.Name, '
-                + 'ReviewedById, ReviewedBy.Name, ReviewedDate, Status, RelatedRecordId, RelatedRecord.Name, ApprovalSubmissionId '
+            String query = 'SELECT Id, Name, AssignedToId, AssignedTo.Name, Comments, CreatedDate, '
+                + 'ReviewedById, ReviewedBy.Name, ReviewedDate, Status, RelatedRecordId, RelatedRecord.Name, ApprovalSubmissionId, '
+                + 'Request_Details__c, '
+                + 'ApprovalSubmission.SubmittedById, ApprovalSubmission.SubmittedBy.Name '
                 + 'FROM ApprovalWorkItem '
                 + 'WHERE (AssignedToId = :userId OR AssignedToId IN :groupIds)';
             
@@ -37,8 +39,10 @@ public with sharing class CustomApprovalTraceController {
             }
             return Database.query(query);
         } else {
-            String query = 'SELECT Id, Name, AssignedToId, AssignedTo.Name, Comments, CreatedDate, ApprovalSubmission.SubmittedById, ApprovalSubmission.SubmittedBy.Name, '
-                + 'ReviewedById, ReviewedBy.Name, ReviewedDate, Status, RelatedRecordId, RelatedRecord.Name, ApprovalSubmissionId '
+            String query = 'SELECT Id, Name, AssignedToId, AssignedTo.Name, Comments, CreatedDate, '
+                + 'ReviewedById, ReviewedBy.Name, ReviewedDate, Status, RelatedRecordId, RelatedRecord.Name, ApprovalSubmissionId, '
+                + 'Request_Details__c, '
+                + 'ApprovalSubmission.SubmittedById, ApprovalSubmission.SubmittedBy.Name '
                 + 'FROM ApprovalWorkItem '
                 + 'WHERE (RelatedRecordId = :recordId)';
             
